@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
   <display-name>TicTak</display-name>
   <welcome-file-list>
     <welcome-file>welcome.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
+    <description>Front Controller</description>
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>tictak.controller.FrontController</servlet-class>
@@ -16,7 +18,7 @@
   </servlet-mapping>
   
   <servlet>
-    <description></description>
+    <description>Ajax controller</description>
     <display-name>AjaxController</display-name>
     <servlet-name>AjaxController</servlet-name>
     <servlet-class>tictak.controller.AjaxController</servlet-class>

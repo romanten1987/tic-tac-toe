@@ -1,5 +1,5 @@
 package tictak.model;
 
 public enum GameStatus {
-	WIN, LOST, DRAW, CONTINUE;
+	WIN, LOST, DRAW, CONTINUE
 }

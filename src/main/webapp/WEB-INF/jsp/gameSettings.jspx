@@ -11,37 +11,42 @@
 	</jsp:text>
 	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <script>
 	var gameName = '${game.name}';
 	var user = "${user}";
 </script>
-<script src="http://code.jquery.com/jquery-latest.min.js">
+<script src="http://code.jquery.com/jquery-latest.min.js"/>
+    <jsp:text />
+</script>
+<script src="js/gameSettings.js">
 	<jsp:text />
 </script>
-<script type="text/javascript"
-	src="http://www.html5canvastutorials.com/libraries/kinetic-v4.1.0.js">
-	<jsp:text />
-</script>
-<script type="text/javascript" src="js/game.js">
-	<jsp:text />
-</script>
-<title>Insert title here</title>
+<title>Create/join game</title>
 </head>
 <body>
-	<h1>Tic-tac-toe</h1>
-	<h2 id ="X">
-		X:
-		<c:out value="${game.playerX.name}" />
-	</h2>
-	<h2 id = "O">
-		O:
-		<c:out value="${game.playerO.name}" />
-	</h2>
+	Hello,
+	<c:out value="${user}" />
+	!
 
-	<div id="container"></div>	
-	<div id="status"></div>
-	<div id="win"></div>
+	<form action="createGame.htm">
+		<input name="gameName" type="text" /> <input type="submit"
+			value="Create new game" />
+	</form>
+
+	<p>Games:</p>
+	<table>
+		<c:forEach items="${gameList}" var="game">
+			<tr>
+				<td><c:out value="${game.key}"></c:out></td>
+				<td><a href="joinGame.htm?game=${game.key}">join</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+
+	<!-- <div id="gameList"></div> -->
+
+
 
 
 </body>

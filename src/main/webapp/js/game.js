@@ -47,10 +47,10 @@ $(document)
 
 					function createField() {
 
-						var fields = new Array();
+						var fields = [];
 						var fieldSize = 100;
 						for ( var i = 0; i < 3; i++) {
-							fields[i] = new Array();
+							fields[i] = [];
 							for ( var j = 0; j < 3; j++) {
 								fields[i][j] = new Kinetic.Rect({
 									x : i * fieldSize,
