@@ -20,10 +20,10 @@
             <jsp:text />
         </script>
         <script type="text/javascript"
-                src="http://www.html5canvastutorials.com/libraries/kinetic-v4.1.0.js">
+                src="${pageContext.request.contextPath}/js/kinetic-v5.1.0.min.js">
             <jsp:text />
         </script>
-        <script type="text/javascript" src="js/game.js">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/game.js">
             <jsp:text />
         </script>
         <title>Insert title here</title>
@@ -41,9 +41,9 @@
         <c:out value="${game.playerO.name}"/>
     </h2>
 
-    <div id="container"></div>
-    <div id="status"></div>
-    <div id="win"></div>
+    <div id="container">asd</div>
+    <div id="status">asd</div>
+    <div id="win">fff</div>
 
 
     </body>

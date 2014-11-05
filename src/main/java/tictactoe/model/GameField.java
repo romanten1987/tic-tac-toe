@@ -1,8 +1,8 @@
-package tictak.model;
+package tictactoe.model;
 
 import java.util.Random;
 
-import tictak.controller.beans.CellBean;
+import tictactoe.controller.beans.CellBean;
 
 public class GameField {
 	private int[][] field;

@@ -1,4 +1,4 @@
-package tictak.controller.beans;
+package tictactoe.controller.beans;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package tictak.model;
+package tictactoe.model;
 
 public class PlayerO implements Player {
 

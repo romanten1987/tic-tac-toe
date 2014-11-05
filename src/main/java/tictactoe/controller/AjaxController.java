@@ -1,4 +1,4 @@
-package tictak.controller;
+package tictactoe.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,12 +16,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import tictak.controller.beans.CellBean;
-import tictak.model.GameField;
-import tictak.model.GameStatus;
-import tictak.model.Player;
-import tictak.model.PlayerO;
-import tictak.model.PlayerX;
+import tictactoe.controller.beans.CellBean;
+import tictactoe.model.GameField;
+import tictactoe.model.GameStatus;
+import tictactoe.model.Player;
+import tictactoe.model.PlayerO;
+import tictactoe.model.PlayerX;
 
 /**
  * Servlet implementation class AjaxController
@@ -47,7 +47,7 @@ public class AjaxController extends HttpServlet {
 		ServletContext context = getServletContext();
 		String myName = request.getParameter("name");
 
-		if (uri.equals("/TicTak/click.do")) {
+		if (uri.contains("click.do")) {
 			int x = Integer.parseInt(request.getParameter("x"));
 			int y = Integer.parseInt(request.getParameter("y"));
 			GameField game = (GameField) request.getSession().getAttribute(
@@ -86,7 +86,7 @@ public class AjaxController extends HttpServlet {
 			out.println(myObj.toString());
 			out.close();
 
-		} else if (uri.equals("/TicTak/startGame.do")) {
+		} else if (uri.contains("startGame.do")) {
 			GameField game = (GameField) request.getSession().getAttribute(
 					"game");
 			while (game.getPlayerO() == null || game.getPlayerX() == null) {
@@ -116,7 +116,7 @@ public class AjaxController extends HttpServlet {
 			 * response.getWriter().write(game.getPlayerX().getName()); } else {
 			 * response.getWriter().write(game.getPlayerO().getName()); }
 			 */
-		} else if (uri.equals("/TicTak/anotherTurn.do")) {
+		} else if (uri.contains("anotherTurn.do")) {
 			GameField game = (GameField) request.getSession().getAttribute(
 					"game");
 			while (!game.isAnotherTurn()) {
@@ -147,7 +147,7 @@ public class AjaxController extends HttpServlet {
 			myObj.add("cell", cellObj);
 			out.println(myObj.toString());
 			out.close();
-		} else if (uri.equals("/TicTak/gameList.do")) {			
+		} else if (uri.contains("gameList.do")) {
 			Map<String, GameField> gameList = (Map<String, GameField>) context
 					.getAttribute("gameList");
 			if (gameList != null) {

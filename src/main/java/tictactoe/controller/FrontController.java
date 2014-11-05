@@ -1,7 +1,7 @@
-package tictak.controller;
+package tictactoe.controller;
 
-import tictak.model.GameField;
-import tictak.model.Player;
+import tictactoe.model.GameField;
+import tictactoe.model.Player;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -56,13 +56,13 @@ public class FrontController extends HttpServlet {
 		}
 
 		String uri = request.getRequestURI();
-		if (uri.equals("/TicTak/gameSettings.htm")) {
+		if (uri.contains("gameSettings.htm")) {
 			String user = request.getParameter("user");
 			request.getSession().removeAttribute("user");
 			request.getSession().setAttribute("user", user);
 			String page = "gameSettings";
 			forward(request, response, page);
-		} else if (uri.equals("/TicTak/createGame.htm")) {
+		} else if (uri.contains("createGame.htm")) {
 			String gameName = request.getParameter("gameName");
 			GameField game = new GameField(gameName);
 			request.getSession().removeAttribute("game");
@@ -78,7 +78,7 @@ public class FrontController extends HttpServlet {
 
 			forward(request, response, "game");
 
-		} else if (uri.equals("/TicTak/joinGame.htm")) {
+		} else if (uri.contains("joinGame.htm")) {
 			String gameName = request.getParameter("game");
 			GameField game = gameList.get(gameName);
 			request.getSession().setAttribute("game", game);
@@ -96,7 +96,7 @@ public class FrontController extends HttpServlet {
 	private void forward(HttpServletRequest request,
 			HttpServletResponse response, String page) {
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/WEB-INF/jsp/" + page + ".jsp");
+				.getRequestDispatcher("/WEB-INF/jsp/" + page + ".jspx");
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
